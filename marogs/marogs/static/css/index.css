@@ -99,12 +99,17 @@ body {
   border-bottom: 1px solid var(--border-color);
 }
 
+/* Avoid a doubled divider where consecutive light sections meet. */
+.hero.is-light + .hero.is-light {
+  border-top: none;
+}
+
 .hero-body {
   padding: 4rem 1.5rem;
 }
 
 .teaser .hero-body {
-  padding-top: 2rem;
+  padding-top: 0rem;
   padding-bottom: 4rem;
 }
 

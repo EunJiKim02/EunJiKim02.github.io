@@ -250,6 +250,7 @@
                     <span class="author-block">Kyungpook National University</span>
                     <!-- TODO: Remove this line if no equal contribution -->
                     <span class="eql-cntrb"><small><br><sup>*</sup> Equal Contribution,  <sup>†</sup> Corresponding Author</small></span>
+                    <br><span class="author-block">ACCV 2026</span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -361,6 +362,60 @@
   </div>
 </section>
 
+<section class="section hero is-white">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Quantitative Results</h2>
+        <div class="content">
+          <img src="marogs/static/images/table1.png" alt="Quantitative results" loading="lazy" style="width: 100%; height: auto;">
+          <p class="has-text-justified" style="margin-top: 1rem;"><strong>Table 1:</strong> Quantitative comparison on the LERF-Mask, Mip-NeRF 360 and Tanks and Temples. The percentages next to each dataset indicate the average object area ratio within the frame. The best, second-best, and third-best results are highlighted in red, orange, and yellow, respectively.</p>
+        </div>
+        <div class="content" style="margin-top: 2.5rem;">
+          <img src="marogs/static/images/table2.png" alt="Quantitative comparison of object boundary quality" loading="lazy" style="width: 50%; height: auto;">
+          <p class="has-text-justified" style="margin-top: 1rem;"><strong>Table 2:</strong> Quantitative comparison of object boundary quality. Best results are highlighted in bold.</p>
+        </div>
+        <div class="content" style="margin-top: 2.5rem;">
+          <img src="marogs/static/images/table3.png" alt="Evaluation on the DTU dataset" loading="lazy" style="width: 100%; height: auto;">
+          <p class="has-text-justified" style="margin-top: 1rem;"><strong>Table 3:</strong> Evaluation on the DTU [15] Dataset. Best results are highlighted in bold, and second-best results are underlined. PUP 3D-GS [11] fails to train because all Gaussians are pruned during training.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Qualitative Results</h2>
+        <div class="content">
+          <img
+            src="marogs/static/images/fig4.png"
+            alt="Qualitative comparison of reconstruction under inconsistent background removal"
+            loading="lazy"
+            style="width: 100%; height: auto;"
+          >
+          <p class="has-text-justified" style="margin-top: 1rem;">
+            <strong>Figure 4:</strong> MaRO-GS reconstructs target objects from input views with inconsistent background removal. Existing approaches produce residual artifacts, whereas MaRO-GS achieves robust, high-fidelity object reconstruction.
+          </p>
+        </div>
+        <div class="content" style="margin-top: 2.5rem;">
+          <img
+            src="marogs/static/images/fig5.png"
+            alt="Qualitative comparison of object extraction methods on the LERF-Mask dataset"
+            loading="lazy"
+            style="width: 100%; height: auto;"
+          >
+          <p class="has-text-justified" style="margin-top: 1rem;">
+            <strong>Figure 5:</strong> Qualitative comparison of our method with object extraction methods on the LERF-Mask dataset.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -450,31 +505,6 @@
     </div>
   </div>
 </section>
-
-<section class="section hero is-white">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Quantitative Results</h2>
-        <div class="content">
-          <img
-            src="marogs/static/images/table1.png"
-            alt="Quantitative results"
-            loading="lazy"
-            style="width: 100%; height: auto;"
-          >
-          <p class="has-text-justified" style="margin-top: 1rem;">
-            <strong>Table 1:</strong> Quantitative comparison on the LERF-Mask, Mip-NeRF 360 and
-            Tanks and Temples. The percentages next to each dataset indicate the average
-            object area ratio within the frame. The best, second-best, and third-best results are
-            highlighted in red, orange, and yellow, respectively.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <!-- Image carousel -->
 <!--
