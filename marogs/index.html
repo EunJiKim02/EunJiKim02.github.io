@@ -3,20 +3,637 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
-  <link rel="stylesheet" href="static/css/bulma.min.css">
+  
+  <!-- Primary Meta Tags -->
+  <!-- TODO: Replace with your paper title and author names -->
+  <meta name="title" content="MaRO-GS">
+  <!-- TODO: Write a compelling 150-160 character description of your research -->
+  <meta name="description" content="MaRO-GS: Mask-Robust Object-Centric Gaussian Splatting from Inconsistent Multi-view Masks">
+  <!-- TODO: Add 5-10 relevant keywords for your research area -->
+  <meta name="keywords" content="3D Gaussian Splatting, Object-centric Reconstruction">
+  <!-- TODO: List all authors -->
+  <meta name="author" content="Eunji Kim, Gahyeon Kim, Gianella Cravioto, Dong-hun Lee, Chaewon Moon, Chae-yeong Song, Sang-hyo Park">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <!-- TODO: Same as paper title above -->
+  <meta property="og:title" content="MaRO-GS">
+  <!-- TODO: Same as description above -->
+  <meta property="og:description" content="MaRO-GS: Mask-Robust Object-Centric Gaussian Splatting from Inconsistent Multi-view Masks">
+  <!-- TODO: Replace with your actual website URL -->
+  <meta property="og:url" content="https://kgh1234.github.io/marogs">
+  <!-- TODO: Create a 1200x630px preview image and update path -->
+  <meta property="og:image" content="https://kgh1234.github.io/marogs/static/images/teaser.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MaRO-GS">
+  <meta property="article:published_time" content="2026-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Eunji Kim">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="3D Gaussian Splatting">
+  <meta property="article:tag" content="Object-centric Reconstruction">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MaRO-GS">
+  <meta name="twitter:description" content="MaRO-GS: Mask-Robust Object-Centric Gaussian Splatting from Inconsistent Multi-view Masks">
+  <meta name="twitter:image" content="https://kgh1234.github.io/marogs/static/images/teaser.png">
+  <meta name="twitter:image:alt" content="MaRO-GS">
+
+  <!-- Academic/Research Specific -->
+  <!-- <meta name="citation_title" content="PAPER_TITLE">
+  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
+  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
+  <meta name="citation_publication_date" content="2024">
+  <meta name="citation_conference_title" content="CONFERENCE_NAME">
+  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf"> -->
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- TODO: Replace with your paper title and authors -->
+  <title>MaRO-GS</title>
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="marogs/static/css/bulma.min.css">
+  <link rel="stylesheet" href="marogs/static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="marogs/static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="marogs/static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="marogs/static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="marogs/static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="marogs/static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="marogs/static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="marogs/static/js/fontawesome.all.min.js"></script>
+  <script defer src="marogs/static/js/bulma-carousel.min.js"></script>
+  <script defer src="marogs/static/js/bulma-slider.min.js"></script>
+  <script defer src="marogs/static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "MaRO-GS",
+    "description": "MaRO-GS: Mask-Robust Object-Centric Gaussian Splatting from Inconsistent Multi-view Masks",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Eunji Kim",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Kyungpook National University"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Gahyeon Kim",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Kyungpook National University"
+        }
+      }
+    ],
+    "datePublished": "2026-xx-xx",
+    "publisher": {
+      "@type": "Organization",
+      "name": "arXiv"
+    },
+    "url": "https://kgh1234.github.io/marogs",
+    "image": "https://kgh1234.github.io/marogs/static/images/teaser.png",
+    "keywords": ["3D Gaussian Splatting", "Object-centric Reconstruction"],
+    "abstract": "Object-centric rendering has emerged as a crucial requirement for various resource-constrained applications. However, directly applying 3DGS-based methods to masked multi-view images disrupts multi-view geometric consistency and produces spurious Gaussians that degrade object fidelity. To address these challenges, we propose a stable 3DGS framework for object-centric reconstruction. We resolve inconsistent supervision by applying Object-aware View Filtering and pruning spurious background geometry through Object-centric Density Refinement. Furthermore, to ensure fair evaluation, we introduce a comprehensive benchmark encompassing diverse object-centric scenarios. Our method achieves superior robustness and improved fidelity under multi-view inconsistent supervision.",
+    "citation": "@misc{Kim2026MaROGS, title={Reconstructing Objects, Not Scenes: Stable Object-centric 3D Gaussian Splatting under Multi-view Inconsistent Supervision}, author={Kim, Eunji and Kim, Gahyeon and Cravioto, Gianella and Lee, Dong-hun and Moon, Chaewon and Song, Chae-yeong and Park, Sang-hyo}, year={2026}, eprint={XXXX.XXXXX}, archivePrefix={arXiv}, primaryClass={cs.CV}}",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://kgh1234.github.io/marogs"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "3D Gaussian Splatting"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Object-centric Reconstruction"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Kyungpook National University",
+    "url": "https://www.knu.ac.kr",
+    "sameAs": [
+      "https://github.com/kgh1234"
+    ]
+  }
+  </script>
 </head>
 <body>
-  <section class="section">
-    <div class="container">
-      <div class="content has-text-centered">
-        <h1>Gahyeon Kim Project Page</h1>
-        <p class="subtitle is-5">Welcome to my research projects</p>
-        <a href="marogs" class="button is-primary is-medium">
-          Go to MAROGS
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- More Works Dropdown -->
+  <!-- <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works from Our Lab</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+
+        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>MaRO-GS: Mask-Robust Object-Centric Gaussian Splatting from Inconsistent Multi-view Masks</h5>
+
+            <p>Brief description of the work and its main contribution.</p>
+
+            <span class="work-venue">Conference/Journal 2024</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
         </a>
+
+        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Paper Title 2</h5>
+            <p>Brief description of the work and its main contribution.</p>
+            <span class="work-venue">Conference/Journal 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Paper Title 3</h5>
+            <p>Brief description of the work and its main contribution.</p>
+            <span class="work-venue">Conference/Journal 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div> 
+  </div>-->
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- TODO: Replace with your paper title -->
+            <h1 class="title is-1 publication-title">MaRO-GS: Mask-Robust Object-Centric Gaussian Splatting from Inconsistent Multi-view Masks</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- TODO: Replace with your paper authors and their personal links -->
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=" target="_blank">Eunji Kim</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=" target="_blank">Gahyeon Kim</a><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=" target="_blank">Gianella Cravioto</a></span>,
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=" target="_blank">Dong-hun Lee</a></span>,
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=" target="_blank">Chaewon Moon</a></span>,
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=" target="_blank">Chae-yeong Song</a></span>,
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=" target="_blank">Sang-hyo Park</a><sup>†</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <!-- TODO: Replace with your institution and conference/journal info -->
+                    <span class="author-block">Kyungpook National University</span>
+                    <!-- TODO: Remove this line if no equal contribution -->
+                    <span class="eql-cntrb"><small><br><sup>*</sup> Equal Contribution,  <sup>†</sup> Corresponding Author</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- TODO: Update with your arXiv paper ID -->
+                      <!-- <span class="link-block">
+                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span> -->
+
+                    <!-- TODO: Add your supplementary material PDF or remove this section -->
+                    <!-- <span class="link-block">
+                      <a href="marogs/static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <span class="link-block">
+                    <a href="https://github.com/kgh1234/" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img
+        id="tree"
+        src="marogs/static/images/teaser.png"
+        alt="Teaser figure for MaRO-GS"
+        style="width: 100%; height: auto;"
+      >
+      <p class="has-text-justified" style="margin-top: 1rem;">
+        <strong>Figure 1:</strong> Comparison between <strong>MaRO-GS</strong> and ObjectGS. (a) <strong>MaRO-GS</strong> directly reconstructs the target object from object-masked multi-view images (top), whereas ObjectGS reconstructs the entire scene before extracting target objects (bottom). This leads to longer training time. 
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: Replace with your paper abstract -->
+          <p>
+            We address the challenge of accurate 3D object reconstruction from multi-view images in Gaussian Splatting. Existing object-level 3DGS methods reconstruct the entire scene rather than directly optimizing the target object, even when only the target object is needed, which incurs substantial computational overhead. They also rely on 2D segmentation masks to associate Gaussians with objects. Such inconsistencies corrupt Gaussian optimization and produce incorrectly supervised Gaussians that degrade object reconstruction fidelity. To overcome these limitations, we propose MaRO-GS, a 3DGS framework that directly optimizes target-object Gaussians from object-masked multi-view images and remains robust to inconsistent supervision. For reliable supervision, mask-reliability view filtering excludes unreliable views. Object-supported Gaussian density control suppresses Gaussians irrelevant to the target object and prevents background densification, while Silhouette-aligned Object Loss maintains object-focused optimization. Extensive experiments across diverse datasets demonstrate that MaRO-GS consistently improves reconstruction fidelity, segmentation accuracy, and computational efficiency, achieving up to 2.05 dB higher PSNR on the LERF-Mask dataset. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="section hero is-white">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content">
+          <img
+            src="marogs/static/images/framework.png"
+            alt="Framework overview"
+            loading="lazy"
+            style="width: 100%; height: auto;"
+          >
+          <p class="has-text-justified" style="margin-top: 1rem;">
+            <strong>Figure 2:</strong> Overview of <strong>MaRO-GS</strong> for object-centric 3D Gaussian Splatting. The pipeline first removes inconsistent views through <strong>(a) mask-reliability view filtering</strong>. It then suppresses Gaussians irrelevant to the target object via <strong>(b) object-supported Gaussian density control</strong> to improve object reconstruction fidelity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <!-- <h2 class="title is-3 has-text-centered">Qualtitative Results (Demo)</h2> -->
+
+      <!-- <div style="margin-bottom: 2.5rem;">
+        <h3 class="title is-4 has-text-centered">LERF-Mask: <code>figurines_33</code></h3>
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">3DGS</h4>
+            <div class="publication-video">
+              <iframe
+                src="marogs/static/gs_demo/3dgs_lerf_mask_36.html"
+                title="3DGS Gaussian Splat Demo for figurines_33"
+                loading="lazy"
+                frameborder="0"
+                allow="fullscreen; xr-spatial-tracking"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin">
+              </iframe>
+            </div>
+          </div>
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">Ours</h4>
+            <div class="publication-video">
+              <iframe
+                src="marogs/static/gs_demo/ours_lerf_mask_36.html"
+                title="Ours Gaussian Splat Demo for figurines_33"
+                loading="lazy"
+                frameborder="0"
+                allow="fullscreen; xr-spatial-tracking"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div style="margin-bottom: 2.5rem;">
+        <h3 class="title is-4 has-text-centered">Scene 2: <code>scene_name_02</code></h3>
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">3DGS</h4>
+            <div class="publication-video">
+              <div style="display: flex; align-items: center; justify-content: center; min-height: 480px; background: #f5f5f5; color: #666; padding: 1.5rem; text-align: center;">
+                Add the 3DGS demo file for <code>scene_name_02</code> here.
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">Ours</h4>
+            <div class="publication-video">
+              <div style="display: flex; align-items: center; justify-content: center; min-height: 480px; background: #f5f5f5; color: #666; padding: 1.5rem; text-align: center;">
+                Add the Ours demo file for <code>scene_name_02</code> here.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div>
+        <h3 class="title is-4 has-text-centered">Scene 3: <code>scene_name_03</code></h3>
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">3DGS</h4>
+            <div class="publication-video">
+              <div style="display: flex; align-items: center; justify-content: center; min-height: 480px; background: #f5f5f5; color: #666; padding: 1.5rem; text-align: center;">
+                Add the 3DGS demo file for <code>scene_name_03</code> here.
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <h4 class="title is-5 has-text-centered">Ours</h4>
+            <div class="publication-video">
+              <div style="display: flex; align-items: center; justify-content: center; min-height: 480px; background: #f5f5f5; color: #666; padding: 1.5rem; text-align: center;">
+                Add the Ours demo file for <code>scene_name_03</code> here.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <p class="subtitle has-text-centered" style="margin-top: 1rem;">
+        Side-by-side comparison on Focus dataset scenes. Drag to orbit and scroll to zoom.
+      </p> -->
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-white">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Quantitative Results</h2>
+        <div class="content">
+          <img
+            src="marogs/static/images/table1.png"
+            alt="Quantitative results"
+            loading="lazy"
+            style="width: 100%; height: auto;"
+          >
+          <p class="has-text-justified" style="margin-top: 1rem;">
+            <strong>Table 1:</strong> Quantitative comparison on the LERF-Mask, Mip-NeRF 360 and
+            Tanks and Temples. The percentages next to each dataset indicate the average
+            object area ratio within the frame. The best, second-best, and third-best results are
+            highlighted in red, orange, and yellow, respectively.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Image carousel -->
+<!--
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          First image description.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Second image description.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+         Third image description.
+       </h2>
+     </div>
+     <div class="item">
+      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
+      <h2 class="subtitle has-text-centered">
+        Fourth image description.
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+-->
+<!-- End image carousel -->
+
+
+
+
+<!-- Youtube video -->
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="publication-video">
+             <video controls preload="metadata" playsinline>
+               <source src="marogs/static/videos/ACCV_DEMO.mp4" type="video/mp4">
+             </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Video carousel -->
+<!--
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
+            <source src="static/videos/carousel1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
+            <source src="static/videos/carousel2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
+            <source src="static/videos/carousel3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+<!-- End video carousel -->
+
+
+
+
+
+
+<!-- Paper poster 
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
       </div>
     </div>
   </section>
-</body>
-</html>
+-->
+<!--End paper poster -->
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@misc{Kims2026marogs,
+  title={},
+  author={Eunji Kim, Gahyeon Kim, Gianella Cravioto, Dong-hun Lee, Chaewon Moon, Chae-yeong Song, Sang-hyo Park},
+  year={2026},
+  eprint={XXXX.XXXXX},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
