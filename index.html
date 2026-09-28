@@ -4,207 +4,195 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="EunJi Kim's research portfolio focused on MLLM and Efficient 3DGS.">
-  <meta name="theme-color" content="#0f172a">
   <title>EunJi Kim | MLLM & Efficient 3DGS</title>
+  <link rel="icon" href="static/images/favicon.ico">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --line: #e5e5e5;
+      --accent: #0f766e;
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 20px 80px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Profile */
+    .profile {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .profile img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    h1 {
+      margin: 0 0 4px;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .subtitle { margin: 0 0 12px; color: var(--muted); }
+    .links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.95rem; }
+
+    .bio { margin: 32px 0 0; }
+
+    /* Sections */
+    h2 {
+      margin: 48px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .timeline { list-style: none; margin: 0; padding: 0; }
+    .timeline li { display: flex; gap: 16px; margin-bottom: 6px; }
+    .timeline .date {
+      flex: 0 0 190px;
+      white-space: nowrap;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Publications */
+    .pub {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .pub img {
+      width: 180px;
+      aspect-ratio: 16 / 10;
+      object-fit: contain;
+      background: #f5f5f5;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .pub-title { margin: 0 0 4px; font-weight: 600; line-height: 1.4; }
+    .pub-meta { margin: 0 0 4px; color: var(--muted); font-size: 0.93rem; }
+    .pub-meta strong { color: var(--text); }
+    .pub-venue { font-style: italic; }
+    .pub-text { margin-bottom: 18px; }
+    .tag {
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      main { padding-top: 40px; }
+      .profile { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .profile img { width: 110px; height: 110px; }
+      .timeline li { flex-direction: column; gap: 0; margin-bottom: 12px; }
+      .timeline .date { flex-basis: auto; }
+      .pub { flex-direction: column; gap: 12px; }
+      .pub img { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-  <div class="page-bg" aria-hidden="true">
-    <span class="orb orb-a"></span>
-    <span class="orb orb-b"></span>
-    <span class="grid-line"></span>
-  </div>
-
-  <main class="page-shell">
-    <section class="hero-panel">
-      <div class="eyebrow">Research Portfolio</div>
-      <div class="hero-layout">
-        <div class="hero-copy">
-          <p class="intro-line">Hello, I am</p>
-          <div class="hero-name-row">
-            <h1>EunJi Kim</h1>
-            <div class="hero-avatar" aria-label="Profile photo slot" role="img" style="background-image: url('static/images/profile.jpg');"></div>
-          </div>
-          <p class="hero-text">
-            I focus on multimodal reasoning and efficient 3D Gaussian splatting.
-            This page collects my selected papers and routes each card to its project page.
-          </p>
-
-          <div class="meta-list" aria-label="Research summary">
-            <div class="meta-item">
-            <strong>
-              <span>Affiliation</span>
-                <span class="affiliation-entry">
-                  <span class="affiliation-year">Mar. 2021 - Aug. 2026</span></strong>
-                  <span class="affiliation-text">Bachelor of Computer Science and Engineering, Kyungpook National University (KNU)</span>
-                </span>
-                <span class="affiliation-entry">
-                  <strong><span class="affiliation-year">Sep. 2026 - current</span></strong>
-                  <span class="affiliation-text">M.S. student, Video Intelligence Lab, KNU</span>
-                </span>
-
-            <strong>
-              <span>✉️ Contact</span>
-            </strong>
-               <span class="affiliation-entry">
-                <span class="affiliation-text">now0104@knu.ac.kr</span> 
-               </span>
-
-            </div>
-            <div class="meta-item">
-              🏆 Recipient of the 19th Presidential Science Scholarship
-            </div>
-          </div>
-
-          <div class="social-row">
-            <a class="social-button github" href="https://github.com/EunJiKim02" target="_blank" rel="noreferrer">
-              <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M12 .5C5.65.5.5 5.76.5 12.27c0 5.21 3.44 9.63 8.2 11.2.6.12.82-.27.82-.58 0-.29-.01-1.08-.02-2.12-3.33.74-4.03-1.66-4.03-1.66-.54-1.4-1.33-1.77-1.33-1.77-1.08-.76.08-.74.08-.74 1.2.09 1.83 1.27 1.83 1.27 1.07 1.88 2.8 1.34 3.48 1.03.11-.8.42-1.34.76-1.65-2.66-.31-5.47-1.37-5.47-6.12 0-1.35.47-2.45 1.24-3.31-.12-.31-.54-1.57.12-3.26 0 0 1.01-.33 3.3 1.26a11.2 11.2 0 0 1 6 0c2.29-1.59 3.3-1.26 3.3-1.26.66 1.69.24 2.95.12 3.26.77.86 1.24 1.96 1.24 3.31 0 4.76-2.82 5.81-5.49 6.11.43.38.82 1.13.82 2.27 0 1.64-.02 2.96-.02 3.36 0 .31.21.71.83.58 4.76-1.57 8.2-5.99 8.2-11.2C23.5 5.76 18.35.5 12 .5z"/>
-              </svg>
-              <span>GitHub</span>
-            </a>
-            <a class="social-button linkedin" href="https://www.linkedin.com/in/eunjikim02/" target="_blank" rel="noreferrer">
-              <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.29 8.95h4.39V24H.29V8.95Zm7.52 0h4.21v2.06h.06c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.29 2.94 5.29 6.76V24h-4.39v-7.48c0-1.78-.03-4.06-2.47-4.06-2.47 0-2.84 1.93-2.84 3.94V24H7.81V8.95Z"/>
-              </svg>
-              <span>LinkedIn</span>
-            </a>
-          </div>
+  <main>
+    <header class="profile">
+      <img src="static/images/profile.jpg" alt="EunJi Kim">
+      <div>
+        <h1>EunJi Kim</h1>
+        <p class="subtitle">M.S. student, Video Intelligence Lab, KNU</p>
+        <div class="links">
+          <span>now0104@knu.ac.kr</span>
+          <a href="https://github.com/EunJiKim02" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/eunjikim02/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
-
-        <aside class="hero-aside">
-          <div class="aside-card">
-            <p class="aside-label">About</p>
-            <h2>Building models that are both capable and efficient.</h2>
-            <p>
-              I care about practical research: cleaner multimodal reasoning, faster 3D reconstruction,
-              and systems that are easy to understand and reuse.
-            </p>
-          </div>
-
-          <div class="tag-cloud" aria-label="Keywords">
-            <span>Multimodal reasoning</span>
-            <span>Vision-language</span>
-            <span>3D reconstruction</span>
-            <span>Rendering efficiency</span>
-          </div>
-        </aside>
       </div>
-    </section>
+    </header>
 
-    <section class="papers-section" id="papers">
-      <div class="section-head">
-        <h2>Papers</h2>
+    <p class="bio">
+      I work on multimodal reasoning and efficient 3D Gaussian splatting —
+      cleaner multimodal reasoning, faster 3D reconstruction, and systems
+      that are easy to understand and reuse.
+    </p>
+
+    <h2>Education</h2>
+    <ul class="timeline">
+      <li><span class="date">Sep. 2026 – Present</span><span>M.S., Video Intelligence Lab, Kyungpook National University</span></li>
+      <li><span class="date">Mar. 2021 – Aug. 2026</span><span>B.S. in Computer Science and Engineering, Kyungpook National University</span></li>
+    </ul>
+
+    <h2>Activities</h2>
+    <ul class="timeline">
+      <li><span class="date">May 2026 – Present</span><span>MPEG (ISO/IEC JTC 1/SC 29) — WG 4 (Video Coding), WG 7 (Coding of 3D Graphics and Haptics)</span></li>
+    </ul>
+
+    <h2>Honors</h2>
+    <ul class="timeline">
+      <li><span class="date">Mar. 2021 – Aug. 2025</span><span>Recipient of the 19th Presidential Science Scholarship</span></li>
+    </ul>
+
+    <h2>Publications</h2>
+
+    <div class="pub">
+      <a href="https://eunjikim02.github.io/marogs/">
+        <img src="marogs/marogs/static/images/teaser.png" alt="MaRO-GS teaser" loading="lazy">
+      </a>
+      <div>
+        <p class="pub-title">
+          <a href="https://eunjikim02.github.io/marogs/">MaRO-GS: Mask-Robust Object-Centric Gaussian Splatting from Inconsistent Multi-view Masks</a>
+        </p>
+        <p class="pub-meta"><strong>Eunji Kim*</strong>, Gahyeon Kim*, Gianella Cravioto, Dong-hun Lee, Chaewon Moon, Chae-yeong Song, Sang-hyo Park†</p>
+        <p class="pub-meta"><span class="tag">3DGS</span><span class="pub-venue">ACCV 2026</span> · <a href="https://eunjikim02.github.io/marogs/">Project page</a></p>
       </div>
+    </div>
 
-      <article class="topic-card">
-        <div class="topic-head">
-          <div>
-            <p class="topic-label">Efficient 3DGS</p>
-            <h3>Efficient 3D Gaussian splatting</h3>
-          </div>
-        </div>
+    <div class="pub pub-text">
+      <div>
+        <p class="pub-title">
+          <a href="https://www.sciencedirect.com/science/article/pii/S0923596526002286" target="_blank" rel="noreferrer">CODEX: A Compression-Originated Distortion Extraction dataset for artifact-aware video enhancement</a>
+        </p>
+        <p class="pub-meta">Dong-shin Lim, Dong-hwi Kim, <strong>Eunji Kim</strong>, Sang-hyo Park†</p>
+        <p class="pub-meta"><span class="tag">Video</span><span class="pub-venue">Signal Processing: Image Communication (SCIE), 2026</span> · <a href="https://www.sciencedirect.com/science/article/pii/S0923596526002286" target="_blank" rel="noreferrer">Paper</a> · <a href="https://zenodo.org/records/17373751" target="_blank" rel="noreferrer">Dataset</a></p>
+      </div>
+    </div>
 
-        <div class="paper-carousel" aria-label="3DGS paper carousel">
-          <button class="paper-control-btn paper-control-btn-left" type="button" data-carousel-button="prev" aria-label="Previous 3DGS paper">
-            <span aria-hidden="true">←</span>
-          </button>
-
-          <div class="paper-viewport">
-            <div class="paper-grid">
-              <a class="paper-card" href="https://kgh1234.github.io/socgs" target="_blank" rel="noreferrer">
-                <div class="paper-image-wrap">
-                  <img class="paper-image-backdrop" src="projects/socgs/framework.png" alt="" aria-hidden="true" loading="lazy">
-                  <img class="paper-image-foreground" src="projects/socgs/framework.png" alt="Efficient 3DGS paper 1 thumbnail" loading="lazy">
-                </div>
-                <div class="paper-copy">
-                  <span class="paper-domain">Efficient 3DGS</span>
-                  <h4>Reconstructing Objects, Not Scenes: Stable Object-centric 3D Gaussian Splatting under Multi-view Inconsistent Supervision (arXiv 26')</h4>
-                  <p>Eunji Kim*, Gahyeon Kim*, Gianella Cravioto, Dong-hun Lee, Chaewon Moon, Chae-yeong Song, Sang-hyo Park†.</p>
-                  <span class="paper-link">Open project page <span class="paper-link-arrow" aria-hidden="true">→</span></span>
-                </div>
-              </a>
-
-              <!-- <a class="paper-card" href="https://kgh1234.github.io/socgs" target="_blank" rel="noreferrer">
-                <div class="paper-image-wrap">
-                  <img class="paper-image-backdrop" src="static/images/carousel4.jpg" alt="" aria-hidden="true" loading="lazy">
-                  <img class="paper-image-foreground" src="static/images/carousel4.jpg" alt="Efficient 3DGS paper 2 thumbnail" loading="lazy">
-                </div>
-                <div class="paper-copy">
-                  <span class="paper-domain">Efficient 3DGS</span>
-                  <h4>Paper 2</h4>
-                  <p></p>
-                  <span class="paper-link">Open project page <span class="paper-link-arrow" aria-hidden="true">→</span></span>
-                </div>
-              </a> -->
-            </div>
-          </div>
-
-          <div class="paper-indicators" aria-label="3DGS paper position"></div>
-
-          <button class="paper-control-btn paper-control-btn-right" type="button" data-carousel-button="next" aria-label="Next 3DGS paper">
-            <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </article>
-
-      <article class="topic-card">
-        <div class="topic-head">
-          <div>
-            <p class="topic-label">MLLM</p>
-            <h3>Multimodal large language models</h3>
-          </div>
-        </div>
-
-        <div class="paper-carousel" aria-label="MLLM paper carousel">
-          <button class="paper-control-btn paper-control-btn-left" type="button" data-carousel-button="prev" aria-label="Previous MLLM paper">
-            <span aria-hidden="true">←</span>
-          </button>
-
-          <div class="paper-viewport">
-            <div class="paper-grid">
-              <a class="paper-card" href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/14072/140720R/A-study-of-video-compression-and-its-impact-on-video/10.1117/12.3102187.short">
-                <div class="paper-image-wrap">
-                  <img class="paper-image-backdrop" src="projects/iwait2026/mainresult.png" alt="" aria-hidden="true" loading="lazy">
-                  <img class="paper-image-foreground" src="projects/iwait2026/mainresult.png" alt="MLLM paper 1 thumbnail" loading="lazy">
-                </div>
-                <div class="paper-copy">
-                  <span class="paper-domain">MLLM</span>
-                  <h4>A study of video compression and its impact on video LLMs in open-ended VideoQA (IWAIT 2026)</h4>
-                  <p>Eunji Kim* and Sang-hyo Park†.</p>
-                  <span class="paper-link">Open project page <span class="paper-link-arrow" aria-hidden="true">→</span></span>
-                </div>
-              </a>
-
-              <a class="paper-card" href="projects/mllm-paper-2.html">
-                <div class="paper-image-wrap">
-                  <img class="paper-image-backdrop" src="static/images/carousel2.jpg" alt="" aria-hidden="true" loading="lazy">
-                  <img class="paper-image-foreground" src="static/images/carousel2.jpg" alt="MLLM paper 2 thumbnail" loading="lazy">
-                </div>
-                <div class="paper-copy">
-                  <span class="paper-domain">MLLM</span>
-                  <h4>Paper 2</h4>
-                  <p>To be continued... more is on the way.</p>
-                  <span class="paper-link">Open project page <span class="paper-link-arrow" aria-hidden="true">→</span></span>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="paper-indicators" aria-label="MLLM paper position"></div>
-
-          <button class="paper-control-btn paper-control-btn-right" type="button" data-carousel-button="next" aria-label="Next MLLM paper">
-            <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </article>
-    </section>
+    <div class="pub pub-text">
+      <div>
+        <p class="pub-title">
+          <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/14072/140720R/A-study-of-video-compression-and-its-impact-on-video/10.1117/12.3102187.short" target="_blank" rel="noreferrer">A study of video compression and its impact on video LLMs in open-ended VideoQA</a>
+        </p>
+        <p class="pub-meta"><strong>Eunji Kim*</strong>, Sang-hyo Park†</p>
+        <p class="pub-meta"><span class="tag">MLLM</span><span class="pub-venue">IWAIT 2026</span> · <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/14072/140720R/A-study-of-video-compression-and-its-impact-on-video/10.1117/12.3102187.short" target="_blank" rel="noreferrer">Paper</a></p>
+      </div>
+    </div>
   </main>
-
-  <script defer src="static/js/index.js"></script>
 </body>
 </html>
